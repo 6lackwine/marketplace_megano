@@ -1,0 +1,60 @@
+version: "3.3"
+
+services:
+  app:
+    build:
+      context: ../Загрузки/python_django_diploma-homework (1)/python_django_diploma-homework
+      dockerfile: Dockerfile
+    command:
+      - "gunicorn"
+      - "marketplace.wsgi:application"
+      - "--bind"
+      - "0.0.0.0:8030"
+    ports:
+      - "8030:8030"
+    restart: always
+    env_file:
+      - .env
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "200k"
+    volumes:
+      - .:/marketplace
+      - ./marketplace/database:/app/database
+#    depends_on:
+#      - db
+#  db:
+#    image: mysql:5.7
+#    ports:
+#      - '3306:3306'
+#    environment:
+#      MYSQL_DATABASE: 'db_django'
+#      MYSQL_USER: 'samir'
+#      MYSQL_PASSWORD: 'password'
+#      MYSQL_ROOT_PASSWORD: 'password'
+#    restart: always
+#    env_file:
+#      - .env
+#    volumes:
+#      - ./marketplace/database:/var/lib/mysqld'
+#  postgres:
+#      image: postgres:14.8-alpine3.18
+#      environment:
+#        POSTGRES_DB: "db_django"
+#        POSTGRES_USER: "habrpguser"
+#        POSTGRES_PASSWORD: "pgpwd4habr"
+#        PGDATA: "/var/lib/postgresql/data/pgdata"
+#      volumes:
+#        - ../2. Init Database:/docker-entrypoint-initdb.d
+#        - ./marketplace/database:/var/lib/postgresql/data
+#      ports:
+#        - "5432:5432"
+
+#  db:
+#    image: nouchka/sqlite3:latest
+#    volumes:
+#      - ./marketplace/database:/app/database
+#    environment:
+#      - SQLITE3_DB=db.sqlite3

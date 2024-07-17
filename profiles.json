@@ -1,0 +1,1 @@
+[{"model": "profiles.profiles", "pk": 1, "fields": {"user": 2, "fullName": "Самир Багиров", "email": "samir_261999@mail.ru", "phone": "89887491827", "image": null}}, {"model": "profiles.profiles", "pk": 2, "fields": {"user": 3, "fullName": "Антон Антонов", "email": "anton@mail.ru", "phone": "7777777", "image": null}}]

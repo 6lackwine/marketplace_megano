@@ -1,0 +1,60 @@
+version: "3.3"
+
+services:
+  app:
+    build:
+      context: ../Загрузки/python_django_diploma-homework (1)/python_django_diploma-homework
+      dockerfile: Dockerfile
+    command:
+      - "gunicorn"
+      - "marketplace.wsgi:application"
+      - "--bind"
+      - "0.0.0.0:8000"
+    ports:
+      - 8007:8000
+      #expose:
+      # - 8000
+    restart: always
+    env_file:
+      - .env
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "200k"
+        volumes:
+          -.:/marketplace
+          -static:/marketplace/static
+          -media:/marketplace/media
+          #- ./marketplace/database:/app/database
+        depends_on:
+          -db
+  db:
+    image: nouchka/sqlite3:latest
+    volumes:
+      - ./marketplace/database:/app/database
+    environment:
+      - SQLITE3_DB=db.sqlite3
+
+  nginx:
+    image: nginx:1.23.1
+    restart: always
+    #volumes:
+     # - ./config/nginx: /etc/nginx/nginx.conf
+     # - .:/marketplace
+     # - static_volume: ./marketplace/static
+     # - media_volume:./marketplace/media
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf:/marketplace/nginx/nginx.conf
+      #- ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      #- ./nginx:/marketplace/nginx/nginx.conf
+      - static:/static
+      - media:/media
+    depends_on:
+      - app
+
+volumes:
+  static:
+  media:

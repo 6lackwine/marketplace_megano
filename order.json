@@ -1,0 +1,1 @@
+[{"model": "orders.order", "pk": 1, "fields": {"user": 1, "createdAt": "2024-05-22T18:56:44.485Z", "fullName": "Самир Багиров", "email": "samir_261999@mail.ru", "phone": "89887491827", "deliveryType": "ordinary", "paymentType": "online", "totalCost": "500.00", "status": "Оплачено", "city": "Москва", "address": "Пушкина 1"}}]

@@ -1,0 +1,1 @@
+[{"model": "profiles.profileavatar", "pk": 1, "fields": {"profile": 1, "src": "profile/profile_1/users/3exEQE8-BG4.jpg", "alt": "мое фото"}}, {"model": "profiles.profileavatar", "pk": 2, "fields": {"profile": 2, "src": "profile/profile_2/users/sticker3.webp", "alt": "мое фото"}}]

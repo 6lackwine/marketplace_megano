@@ -1,0 +1,1 @@
+[{"model": "products.sale", "pk": 1, "fields": {"product": 1, "dateFrom": "2024-05-21", "dateTo": "2024-06-21", "salePrice": "300.00"}}]

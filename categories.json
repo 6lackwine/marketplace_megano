@@ -1,0 +1,1 @@
+[{"model": "catalog.categories", "pk": 1, "fields": {"title": "Электроника", "image": 1, "parent": null}}, {"model": "catalog.categories", "pk": 2, "fields": {"title": "Смартфоны", "image": 2, "parent": 1}}, {"model": "catalog.categories", "pk": 3, "fields": {"title": "Ноутбуки", "image": 3, "parent": 1}}]
