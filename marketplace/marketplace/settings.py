@@ -30,7 +30,8 @@ SECRET_KEY = getenv(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = getenv("DJANGO_DEBUG", "0") == "1"
+# DEBUG = getenv("DJANGO_DEBUG", "0") == "1"
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -150,12 +151,15 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "static"
+STATIC_ROOT = BASE_DIR / "static"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, "static/"),
+# ]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
 # ]
 
 # Default primary key field type
