@@ -18,7 +18,7 @@ COPY marketplace .
 
 #RUN DJANGO_SUPERUSER_PASSWORD=123 python manage.py createsuperuser -h --username admin
 
-#RUN python manage.py makemigrations
-#RUN python manage.py migrate
+RUN python manage.py makemigrations
+RUN python manage.py migrate
 
 CMD ["gunicorn", "marketplace.wsgi:application", "--bind", "0.0.0.0:8000"]
