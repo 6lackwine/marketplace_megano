@@ -3,7 +3,8 @@ version: "3.3"
 services:
   app:
     build:
-      context: ../Загрузки/python_django_diploma-homework (1)/python_django_diploma-homework
+      #context: ../Загрузки/python_django_diploma-homework (1)/python_django_diploma-homework
+      context: .
       dockerfile: Dockerfile
     command:
       - "gunicorn"
@@ -21,7 +22,7 @@ services:
         max-file: "10"
         max-size: "200k"
     volumes:
-      - .:/marketplace
+      #- .:/marketplace
       - ./marketplace/database:/app/database
 #    depends_on:
 #      - db
